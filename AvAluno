@@ -1,0 +1,23 @@
+from flask import Flask, render_template
+
+class Aluno:
+    def __init__(self, nome, categoria, idade):
+        self.nome=nome
+        self.categoria=categoria
+        self.idade=idade
+
+app = Flask(__name__)
+
+@app.route('/inicio')
+def ola():
+    aluno1 = Aluno('Adri', 'Feminino', '30')
+    aluno2 = Aluno('Igor', 'Infantil', '13')
+    aluno3 = Aluno('João', 'Masculino', '40')
+    ficha = [aluno1, aluno2, aluno3]
+    return render_template('ficha.html', titulo='Alunos', alunos=ficha)
+
+app.run()
+###http://127.0.0.1:5000/inicio
+Erro interno do servidor
+O servidor encontrou um erro interno e não pôde concluir sua solicitação.
+O servidor está sobrecarregado ou há um erro no aplicativo.
